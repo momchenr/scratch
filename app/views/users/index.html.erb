@@ -1,0 +1,9 @@
+<div class="well">
+  <h1>All users</h1>
+    
+  <% @user.each do |user| %>
+    <%= link_to user.username, public_profile_path(user.username) %><br/>
+  <% end %>
+  
+</div>
+

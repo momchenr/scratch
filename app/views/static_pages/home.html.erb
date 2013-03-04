@@ -1,0 +1,18 @@
+<% if user_signed_in? %>
+		    
+<% else %>
+    
+<div class="center hero-unit">
+	<h1>Don't throw away extra materials.
+	</h1>
+	<h2>Nearly every HVAC and Plumbing Contractor throws away extra materials after a job.</h2>
+	<p style="text-align:left">You quote a job, and just by how it all works out, you end up with leftover PVF.
+		You put it in the warehouse, and some of it gets used throughout the year - but a lot of it doesn't. And at the end
+		of the year, you end up tossing out the odds and ends. You're throwing money away. What if you could upload a list 
+		of the things that you're stuck with... </p>
+	<h2>...and other people would contact you to get them?</h2>
+    
+	<%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary" %>
+		
+<% end %>
+</div>

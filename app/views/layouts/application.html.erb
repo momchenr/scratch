@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Overflow</title>
+     <%= stylesheet_link_tag    "application", :media => "all" %>
+     <%= javascript_include_tag "application" %>
+     <%= csrf_meta_tags %>
+    </head>
+    <body>
+        <header>
+        <header class="navbar navbar-fixed-top">
+          <div class="navbar-inner">
+            <div class="container">
+              <%= link_to "Overflow", root_path, id: "logo" %>
+              <nav>
+                <ul class="nav pull-right">
+                    <li><%= link_to "About", about_path %></li>
+                    <% if user_signed_in? %>
+                    <li><%= link_to "All Users", all_users_path %></li>
+                    <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+                    <li><%= link_to "View Profile", public_profile_path(current_user.username) %></li>
+                    <li><%= link_to "New Item", new_item_path %></li>
+                    <li><%= link_to "All Items", items_path %></li>
+                    <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+                    <% else %>
+                    <li><%= link_to "Sign In", new_user_session_path %></li>
+                    <% end %>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </header>
+        
+        <div class="container">
+            <% flash.each do |key, value| 
+           		key = key.to_s.strip
+           		key = "error" if key == "alert"
+           		key = "success" if key == "notice"
+           		auto = "auto" if key == "success"
+      		-%>
+      		 
+      		<div id="alert-messages">
+        		<div class="alert alert-block alert-<%= key %> <%= auto %> fade in">
+          		<a class="close" data-dismiss="alert">&times;</a>
+          		<%= value %>
+        		</div>
+      		</div>
+            
+      		<% end %>
+            
+      		<%= yield %>
+        </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<div class="well">
+
+	<h1>All Items</h1>
+
+		<table>
+  		<tr>
+		  	<th>Title</th>
+		    <th>Details</th>
+		    <th>Inquire</th>
+		    <th></th>
+		    <th></th>
+		    <th></th>
+  		</tr>
+
+			<% @items.each do |item| %>
+			  <tr>
+			  	<td><%= link_to item.title, item_path(item) %></td>
+			    <td><%= item.content %></td>
+			    <td><%= mail_to item.email, "Inquire", :cc => "michaelomchenry@gmail.com",
+			         :subject => "OverFlow Inquiry Regarding " + item.title %></td>    
+			         
+			    <% if item.email == current_user.email %>
+			    <td><%= link_to 'Edit', edit_item_path(item) %></td>
+			    <td><%= link_to 'Delete', item, confirm: 'Are you sure?', method: :delete %></td>
+			    <% else %>
+			    <% end %>
+			  </tr>
+			<% end %>
+		</table>
+
+		<br />
+
+	<%= link_to 'New Item', new_item_path %>
+
+</div>

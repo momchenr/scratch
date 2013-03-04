@@ -1,0 +1,24 @@
+<div class="well">
+
+	<p id="notice"><%= notice %></p>
+	
+	<p>
+	  <b>Title:</b>
+	  <%= @item.title %>
+	</p>
+	
+	<p>
+	  <b>Content:</b>
+	  <%= @item.content %>
+	</p>
+	
+	<p>
+	  <b>User:</b>
+	  <%= @item.email %>
+	</p>
+	
+	
+	<%= link_to 'Edit', edit_item_path(@item) %> |
+	<%= link_to 'Back', items_path %>
+
+</div>
