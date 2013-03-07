@@ -16,3 +16,8 @@
 
 # Ignore database.yaml
 /config/database.yml
+
+# Ignore temp files from vim
+*~
+*.swp
+*.swo
