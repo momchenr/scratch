@@ -5,6 +5,7 @@ gem 'thin'
 gem 'devise'
 gem 'seed_dump'
 gem 'foreman', '~> 0.61.0'
+gem 'tire'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
