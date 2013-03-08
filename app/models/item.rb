@@ -1,9 +1,28 @@
 class Item < ActiveRecord::Base
-  include Tire::Model::Search
-  include Tire::Model::Callbacks
+#  include Tire::Model::Search
+#  include Tire::Model::Callbacks
 
   attr_accessible :content, :user_id, :title
   validates :content, :length => { :maximum => 140 }
   belongs_to :user
   delegate :email, to: :user
+
+#  mapping do
+#    indexes :content #analyzer: 'snowball'
+#    indexes :created_at, type: 'date'
+#    indexes :title
+#  end
+
+#def self.search(params)
+#  tire.search(page: params[:page], per_page: 2) do
+#    query do
+#      boolean do
+#        must { string params[:query], default_operator: "AND" } if params[:query].present?
+#        must { range :created_at, lte: Time.zone.now }
+#      end
+#    end
+#    sort { by :created_at, "desc" } if params[:query].blank?
+#     # raise to_curl
+#    end
+#  end
 end
