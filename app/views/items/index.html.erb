@@ -1,35 +1,44 @@
 <div class="well">
+  <%= form_tag items_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+  <% end %>
+</div>
 
-	<h1>All Items</h1>
+<div class="well">
 
-		<table>
-  		<tr>
-		  	<th>Title</th>
-		    <th>Details</th>
-		    <th>Inquire</th>
-		    <th></th>
-		    <th></th>
-		    <th></th>
-  		</tr>
+  <h1>All Items</h1>
+    <table>
+      <tr>
+  	<th>Title</th>
+        <th>Details</th>
+	<th>Location</th>
+        <th>Inquire</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th></th>
+      </tr>
 
-			<% @items.each do |item| %>
-			  <tr>
-			  	<td><%= link_to item.title, item_path(item) %></td>
-			    <td><%= item.content %></td>
-			    <td><%= mail_to item.email, "Inquire", :cc => "michaelomchenry@gmail.com",
-			         :subject => "OverFlow Inquiry Regarding " + item.title %></td>    
+  <% @items.each do |item| %>
+      <tr>
+        <td><%= link_to item.title.to_s, item_path(item) %></td>
+        <td><%= item.content.to_s %></td>
+	<td><%= item.location %></td>
+        <td><%= mail_to item.email.to_s, "Inquire", :cc => "michaelomchenry@gmail.com",
+            :subject => "OverFlow Inquiry Regarding " + item.title.to_s %></td>    
 			         
-			    <% if item.email == current_user.email %>
-			    <td><%= link_to 'Edit', edit_item_path(item) %></td>
-			    <td><%= link_to 'Delete', item, confirm: 'Are you sure?', method: :delete %></td>
-			    <% else %>
-			    <% end %>
-			  </tr>
-			<% end %>
-		</table>
+        <% if item.email == current_user.email %>
+        <td><%= link_to 'Edit', edit_item_path(item).to_s %></td>
+        <td><%= link_to 'Delete', item, confirm: 'Are you sure?', method: :delete %></td>
+        <% else %>
+        <% end %>
+      </tr>
+      <% end %>
+    </table>
+    <br />
 
-		<br />
-
-	<%= link_to 'New Item', new_item_path %>
+  <%= link_to 'New Item', new_item_path %>
 
 </div>

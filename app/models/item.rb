@@ -5,8 +5,19 @@ class Item < ActiveRecord::Base
   attr_accessible :content, :user_id, :title
   validates :content, :length => { :maximum => 140 }
   belongs_to :user
-  delegate :email, to: :user
+  delegate :email, :city, :state, to: :user
 
+  def self.search(search)
+    if search
+      where('title ILIKE ? OR content ILIKE ?', "%#{search}%", "%#{search}%")
+    else
+      scoped
+    end
+  end
+
+  def location
+    [city, state].reject(&:blank?).join(",")
+  end
 #  mapping do
 #    indexes :content #analyzer: 'snowball'
 #    indexes :created_at, type: 'date'
