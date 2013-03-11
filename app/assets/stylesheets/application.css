@@ -21,7 +21,7 @@ body {
   padding-top: 60px;
   background-image:url('/images/warehouse.jpg');
   background-repeat:no-repeat;
-  background-size:100%;
+  background-size:cover;
 }
 
 section {
