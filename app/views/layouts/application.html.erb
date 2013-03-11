@@ -50,6 +50,20 @@
             
       		<%= yield %>
         </div>
+      </div>
+
+    <footer>
+      <div class="container">
+        <div class="well">
+          Copyright 2013, Overflow LLC. All rights reserved.
+          <div class="pull-right">
+            <%= mail_to "contact@overflow.com", "Contact", :subject => 
+                        "Question about Overflow" %> &nbsp | &nbsp
+            <%= link_to "About", about_path %>
+          </div>
         </div>
-    </body>
+      </div>
+    </footer>
+  
+  </body>
 </html>
