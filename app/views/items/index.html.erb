@@ -6,17 +6,19 @@
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil, :class => 'btn btn-info',
-        :style => 'margin-bottom:10px'%>
+      :style => 'margin-bottom:10px' %>
+      <%= link_to "Browse Items", items_path, :class => 'btn btn-success',
+      :style => 'margin-bottom:10px' %>
   </p>
   <% end %>
 </div>
 </div>
-<div class="span8">
+<div class="span9">
   <div class="well">
     <h3>Did you know?</h3>
     <p>You should specify sizes, material, and part type in your searches.
     For example, you could search for <strong>6" SS 316 90</strong>. The more
-    info there is to start with, the better!</p>
+    info there is to start with, the better! Click here for more info. </p>
   </div>
 </div>
 </div>
@@ -24,28 +26,28 @@
 <div class="well">
 
   <h1>All Items</h1>
-    <table>
+    <table style="text-align:left">
       <tr>
-  	<th>Title</th>
-        <th>Details</th>
-	<th>Location</th>
-        <th>Inquire</th>
-        <th>Edit</th>
-        <th>Delete</th>
-        <th></th>
+        <th><h3>Title</h3></th>
+        <th style="padding-left:45px"><h3>Details</h3></th>
+	      <th style="padding-left:45px"><h3>Location</h3></th>
+        <th style="padding-left:45px"><h3>Inquire</h3></th>
+        <th style="padding-left:45px"><h3>Edit</h3></th>
+        <th style="padding-left:45px"><h3>Delete</h3></th>
+        <th><h3></h3></th>
       </tr>
 
   <% @items.each do |item| %>
       <tr>
         <td><%= link_to item.title.to_s, item_path(item) %></td>
-        <td><%= item.content.to_s %></td>
-	<td><%= item.location %></td>
-        <td><%= mail_to item.email.to_s, "Inquire", :cc => "michaelomchenry@gmail.com",
+        <td style="padding-left:45px"><%= item.content.to_s  %></td>
+	      <td style="padding-left:45px"><%= item.location %></td>
+        <td style="padding-left:45px"><%= mail_to item.email.to_s, "Inquire", :cc => "michaelomchenry@gmail.com",
             :subject => "OverFlow Inquiry Regarding " + item.title.to_s %></td>    
 			         
         <% if item.email == current_user.email %>
-        <td><%= link_to 'Edit', edit_item_path(item).to_s %></td>
-        <td><%= link_to 'Delete', item, confirm: 'Are you sure?', method: :delete %></td>
+        <td style="padding-left:45px"><%= link_to 'Edit', edit_item_path(item).to_s %></td>
+        <td style="padding-left:45px"><%= link_to 'Delete', item, confirm: 'Are you sure?', method: :delete %></td>
         <% else %>
         <% end %>
       </tr>
