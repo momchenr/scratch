@@ -1,19 +1,43 @@
+<div class="span11" style="margin-left:0px">
+  <div class="well">
+    <h1 class="center">Oh, you've been here before?</h1>
+    <h3>That means that you already know the value of having allies in the HVAC
+        field. As a Unified Group Member with Overflow benefits, you'll always 
+        be the first to know when new items become available. </h3>
+      <h4 style="margin-left:20px">To get the most out of Overflow, make sure 
+        you:</h4>
+      <ul style="margin-top:20px">
+        <li>Add items as they become excess in your shop</li>
+        <li>Set your weekly alerts so that you're notified when new items are
+        added - monthly, weekly, or daily!</li>
+        <li>Contact other users as often as you're bidding work with items they
+        have in stock - why pay more than you have to?</li>
+        <li>Build your material network by growing relationships with real HVAC
+        contractors.</li>
+      </ul>
+            
+  </div>
+</div>
+
+
+<div class="span4">
 <div class="well">
 	<h2>Sign in</h2>
 	
 	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-	  <div><%= f.label :email %><br />
+	  <div><%= f.label :email %>
 	  <%= f.email_field :email, :autofocus => true %></div>
 	
-	  <div><%= f.label :password %><br />
+	  <div><%= f.label :password %>
 	  <%= f.password_field :password %></div>
 	
 	  <% if devise_mapping.rememberable? -%>
 	    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
 	  <% end -%>
 	
-	  <div><%= f.submit "Sign in" %></div>
+    <div><%= f.submit "Sign in", :class => 'btn btn-primary' %></div>
 	<% end %>
 	
 	<%= render "devise/shared/links" %>
+</div>
 </div>
