@@ -31,7 +31,7 @@
           </div>
         </header>
         
-        <div class="container">
+        <div class="container" style="margin:0 auto -40px; height:auto !important; height:100%; min-height=100%; padding-bottom:80px">
             <% flash.each do |key, value| 
            		key = key.to_s.strip
            		key = "error" if key == "alert"
@@ -52,10 +52,10 @@
         </div>
       </div>
 
-      <footer class="navbar-bottom">
+      <footer class="navbar-fixed-bottom" style="height:40px">
       <div class="navbar-inner">
         <div class="container">
-          <nav style="margin-top:20px; margin-left:80px">Copyright 2013, Overflow Limited. All rights reserved.
+          <nav style="padding-top:10px; margin-left:80px">Copyright 2013, Overflow Limited. All rights reserved.
             <div class="nav pull-right" style="padding-right:80px">
               <%= mail_to "contact@overflow.com", "Contact", :subject => 
                           "Question about Overflow" %> &nbsp | &nbsp
