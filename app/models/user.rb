@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   end
 
   def location
-    [city, state].reject(&:blank?).join(",")
+    [city.to_s.camelcase, state.to_s.upcase].reject(&:blank?).join(", ")
   end
   
 end
