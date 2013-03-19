@@ -16,7 +16,7 @@ class Item < ActiveRecord::Base
   end
 
   def location
-    [city, state].reject(&:blank?).join(",")
+    [city.to_s.camelcase, state.to_s.upcase].reject(&:blank?).join(", ")
   end
 #  mapping do
 #    indexes :content #analyzer: 'snowball'
