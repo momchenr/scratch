@@ -15,7 +15,7 @@
 </div>
 <div class="span9">
   <div class="well">
-    <h3>Did you know?</h3>
+    <h2>Did you know?</h2>
     <p>You should specify sizes, material, and part type in your searches.
     For example, you could search for <strong>6" SS 316 90</strong>. The more
     info there is to start with, the better! Click here for more info. </p>
@@ -55,7 +55,9 @@
     </table>
     <br />
 
-    <%= paginate @items %>
+    <div>
+      <%= paginate @items %>
+    </div>
 
   <%= link_to 'New Item', new_item_path %>
 
