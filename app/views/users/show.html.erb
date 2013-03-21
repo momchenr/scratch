@@ -17,7 +17,8 @@
 		<% @user.items.each do |item| %>
 			<tr>
 			  	<td><%= link_to item.title, item_path(item) %></td>
-			    <td><%= item.content %></td>
+          <td><%= item.content %></td>
+          <td><%= item.price %></td>
 			    <% if item.email == current_user.email %>
 			    <td><%= link_to 'Edit', edit_item_path(item) %></td>
 			    <td><%= link_to 'Delete', item, confirm: 'Are you sure?', method: :delete %></td>
