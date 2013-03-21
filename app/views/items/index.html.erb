@@ -29,33 +29,33 @@
     <table style="text-align:left; width:100%">
       <tr>
         <th><h3>Title</h3></th>
-        <th style=""><h3>Details</h3></th>
-        <th style=""><h3>Price</h3></th>
-	      <th style=""><h3>Location</h3></th>
-        <th style=""><h3>Inquire</h3></th>
-        <th style=""><h3>Edit</h3></th>
-        <th style=""><h3>Delete</h3></th>
+        <th><h3>Details</h3></th>
+        <th><h3>Price</h3></th>
+	      <th><h3>Location</h3></th>
+        <th><h3>Inquire</h3></th>
+        <th><h3>Edit</h3></th>
+        <th><h3>Delete</h3></th>
         <th><h3></h3></th>
       </tr>
 
   <% @items.each do |item| %>
       <tr>
         <td><%= link_to truncate(item.title.to_s, :length => 25), item_path(item) %></td>
-        <td style=""><%= truncate(item.content.to_s, :length => 27) %></td>
+        <td><%= truncate(item.content.to_s, :length => 27) %></td>
         
         <% if item.price == nil %>
-          <td style="">-</td>
+          <td>-</td>
         <% else %>
-          <td style=""><%= item.price.to_s %></td>
+          <td><%= item.price.to_s %></td>
         <% end %>
         
-        <td style=""><%= item.location %></td>
-        <td style=""><%= mail_to item.email.to_s, "Inquire", :cc => "michaelomchenry@gmail.com",
+        <td><%= item.location %></td>
+        <td><%= mail_to item.email.to_s, "Inquire", :cc => "michaelomchenry@gmail.com",
             :subject => "OverFlow Inquiry Regarding " + item.title.to_s %></td>    
 			         
         <% if item.email == current_user.email %>
-        <td style=""><%= link_to 'Edit', edit_item_path(item).to_s %></td>
-        <td style=""><%= link_to 'Delete', item, confirm: 'Are you sure?', method: :delete %></td>
+        <td><%= link_to 'Edit', edit_item_path(item).to_s %></td>
+        <td><%= link_to 'Delete', item, confirm: 'Are you sure?', method: :delete %></td>
         <% else %>
         <% end %>
       </tr>
