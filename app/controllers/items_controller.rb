@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
     if @items.class == Array
       @items = Kaminari.paginate_array(@items).page(params[:page]).per(5) 
     else
-      @items = @items.page(params[:page]).per(10)
+      @items = @items.page(params[:page]).per(5)
     end
     respond_to do |format|
       format.html # index.html.erb
