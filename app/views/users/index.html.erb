@@ -1,9 +1,18 @@
 <div class="well">
-  <h1>All users</h1>
-    
-  <% @user.each do |user| %>
-    <%= link_to user.username, public_profile_path(user.username) %><br/>
-  <% end %>
+  <h1 style="padding-bottom:25px">All users</h1>
+
+  <table style="width:50%; text-align:left"">
+    <tr>
+      <th><h3>Company Name</h3></th>
+      <th><h3>Location</h3></th>
+    </tr>
+    <tr>
+      <% @user.each do |user| %>
+        <td><%= link_to user.username, public_profile_path(user.username) %><br/></td>
+        <td><%= user.location %> </td>
+      </tr>
+    <% end %>
+  </table>
   
 </div>
 
