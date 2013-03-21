@@ -26,30 +26,36 @@
 <div class="well">
 
   <h1>All Items</h1>
-    <table style="text-align:left">
+    <table style="text-align:left; width:100%">
       <tr>
         <th><h3>Title</h3></th>
-        <th style="padding-left:45px"><h3>Details</h3></th>
-        <th style="padding-left:45px"><h3>Price</h3></th>
-	      <th style="padding-left:45px"><h3>Location</h3></th>
-        <th style="padding-left:45px"><h3>Inquire</h3></th>
-        <th style="padding-left:45px"><h3>Edit</h3></th>
-        <th style="padding-left:45px"><h3>Delete</h3></th>
+        <th style=""><h3>Details</h3></th>
+        <th style=""><h3>Price</h3></th>
+	      <th style=""><h3>Location</h3></th>
+        <th style=""><h3>Inquire</h3></th>
+        <th style=""><h3>Edit</h3></th>
+        <th style=""><h3>Delete</h3></th>
         <th><h3></h3></th>
       </tr>
 
   <% @items.each do |item| %>
       <tr>
-        <td><%= link_to item.title.to_s, item_path(item) %></td>
-        <td style="padding-left:45px"><%= item.content.to_s %></td>
-        <td style="padding-left:45px"><%= item.price.to_s %></td>
-	      <td style="padding-left:45px"><%= item.location %></td>
-        <td style="padding-left:45px"><%= mail_to item.email.to_s, "Inquire", :cc => "michaelomchenry@gmail.com",
+        <td><%= link_to truncate(item.title.to_s, :length => 25), item_path(item) %></td>
+        <td style=""><%= truncate(item.content.to_s, :length => 27) %></td>
+        
+        <% if item.price == nil %>
+          <td style="">-</td>
+        <% else %>
+          <td style=""><%= item.price.to_s %></td>
+        <% end %>
+        
+        <td style=""><%= item.location %></td>
+        <td style=""><%= mail_to item.email.to_s, "Inquire", :cc => "michaelomchenry@gmail.com",
             :subject => "OverFlow Inquiry Regarding " + item.title.to_s %></td>    
 			         
         <% if item.email == current_user.email %>
-        <td style="padding-left:45px"><%= link_to 'Edit', edit_item_path(item).to_s %></td>
-        <td style="padding-left:45px"><%= link_to 'Delete', item, confirm: 'Are you sure?', method: :delete %></td>
+        <td style=""><%= link_to 'Edit', edit_item_path(item).to_s %></td>
+        <td style=""><%= link_to 'Delete', item, confirm: 'Are you sure?', method: :delete %></td>
         <% else %>
         <% end %>
       </tr>
