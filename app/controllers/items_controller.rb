@@ -6,6 +6,11 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
     @items = Item.search(params[:search])
+    if @items.class == Array
+      @items = Kaminari.paginate_array(@items).page(params[:page]).per(5) 
+    else
+      @items = @items.page(params[:page]).per(10)
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @items }
