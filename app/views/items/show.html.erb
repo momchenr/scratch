@@ -3,23 +3,33 @@
 	<p id="notice"><%= notice %></p>
 	
 	<p>
-	  <b>Title:</b>
-	  <%= @item.title %>
+  <h2><%= @item.title %></h2>
 	</p>
 	
 	<p>
-	  <b>Content:</b>
+	  <strong>Description:</strong>
 	  <%= @item.content %>
 	</p>
 
   <p>
-    <b>Price:</b>
-    <%= @item.price %>
+    <strong>Price:</strong>
+    <% if @item.price == nil %>
+      Contact for more information
+    <% else %>
+      <%= @item.price %>
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Location:</strong>
+    <%= @item.location %>
   </p>
 
 	<p>
-	  <b>User:</b>
-	  <%= @item.email %>
+  <b>User:</b>
+    <%= @item.email %>&nbsp &nbsp
+    <%= mail_to @item.email.to_s, "Email / Contact this User", :cc => 
+        "michaelomchenry@gmail.com", :subject => "OverFlow Inquiry Regarding "  + @item.title.to_s %>
 	</p>
 	
 	
