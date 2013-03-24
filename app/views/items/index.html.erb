@@ -54,9 +54,13 @@
 
         <td><%= item.created_at.to_formatted_s(format = :long_ordinal) %></td>
 
-        <td><%= mail_to item.email.to_s, "Inquire", :cc => "michaelomchenry@gmail.com",
+        <% if item.email == current_user.email %>
+          <td>(yours)</td>
+        <% else %>
+          <td><%= mail_to item.email.to_s, "Inquire", :cc => "michaelomchenry@gmail.com",
             :subject => "OverFlow Inquiry Regarding " + item.title.to_s %></td>    
-			         
+        <% end %>
+
         <% if item.email == current_user.email %>
         <td><%= link_to 'Edit', edit_item_path(item).to_s %></td>
         <td><%= link_to 'Delete', item, confirm: 'Are you sure?', method: :delete %></td>
