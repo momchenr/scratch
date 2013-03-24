@@ -2,6 +2,35 @@
 <% if user_signed_in? %>
   <div class="well">
     <h1>Dashboard</h1>
+    <h4 style="padding-bottom:20px">What would you like to do?</h4>
+
+    <table>
+      <tr>
+        <td style="padding-bottom:20px"><%= link_to "Search for an Item", items_path, class: "btn btn-large btn-primary" %></td>
+        <td style="padding-bottom:20px; padding-left:20px"><h3>Search for the materials you need.</h3></td>
+      </tr>
+      <tr>
+        <td style="padding-bottom:20px"><%= link_to "Add an Item", new_item_path, class: "btn btn-large btn-info" %></td>
+        <td style="padding-bottom:20px; padding-left:20px"><h3>Add items to your inventory.</h3></td>
+      </tr>
+      <tr>                                                                      
+        <td style="padding-bottom:20px"><%= link_to "Browse Contractors", all_users_path, class: "btn btn-large btn-success" %></td>
+        <td style="padding-bottom:20px; padding-left:20px"><h3>Find other contractors with items to spare.</h3></td>
+        </tr>  
+      <tr>                                                                      
+        <td><%= link_to "Edit Your Profile", edit_user_registration_path, class: "btn btn-large btn-warning" %></td>
+        <td style="padding-left:20px"><h3>Help others find you.</h3></td>                                                                                                                                  
+      </tr>  
+    </table><br />
+    
+    <h4>Overflow was built BY contractors, FOR contractors.</h4>
+
+    <p>No need for complicated software. No need to learn a new accounting system.
+    Just search for the items you need, contact the user when you find something.
+    If you want to add items of your own, that's easy too. If you run into any
+    problems, find us on the contact page or email michaelomchenry@gmail.com
+    and we'll get to the bottom of it. If you have an thougts or feedback, we're
+    always looking to improve.</p>
   </div>
 		    
 <% else %>
