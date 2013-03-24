@@ -1,2 +1,1 @@
-web:	rails s
-worker: sudo service elasticsearch console
+web: bundle exec thin start -p $PORT -e $RACK_ENV
