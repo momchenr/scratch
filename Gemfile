@@ -5,6 +5,7 @@ gem 'thin'
 gem 'devise'
 gem 'seed_dump'
 gem 'kaminari'
+gem 'foreman'
 
 # gem 'tire'
 
