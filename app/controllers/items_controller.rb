@@ -7,9 +7,9 @@ class ItemsController < ApplicationController
     @items = Item.all
     @items = Item.search(params[:search])
     if @items.class == Array
-      @items = Kaminari.paginate_array(@items).page(params[:page]).per(10) 
+      @items = Kaminari.paginate_array(@items).page(params[:page]).per(15) 
     else
-      @items = @items.page(params[:page]).per(10)
+      @items = @items.page(params[:page]).per(15)
     end
     respond_to do |format|
       format.html # index.html.erb
