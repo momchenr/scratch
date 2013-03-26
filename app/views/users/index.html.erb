@@ -5,12 +5,29 @@
     <tr>
       <th><h3>Company Name</h3></th>
       <th><h3>Location</h3></th>
+      <th><h3>Phone</h3></th>
       <th><h3>Get in Touch</h3></th>
     </tr>
     <tr>
       <% @user.each do |user| %>
         <td><%= link_to user.username, public_profile_path(user.username) %><br/></td>
-        <td><%= user.location %> </td>
+        
+        <% if user.state != nil and user.city != nil %>
+          <td><%= user.location %></td>
+        <% elsif user.state != nil and user.city == nil %>
+          <td><%= user.state %></td>
+        <% elsif user.state == nil and user.city != nil %>
+          <td><%= user.city %></td>
+        <% else %>
+          <td>---</td>
+        <% end %>
+
+        <% if user.phone != nil %>
+          <td><%= user.phone %></td>
+        <% else %>
+          <td>-</td>
+        <% end %>
+
         <td><%= mail_to user.email.to_s, "Email this User", :cc => "michaelomchenry@gmail.com",
             :subject => "Contact from Overflow Member" %></td> 
 
