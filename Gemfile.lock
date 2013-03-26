@@ -52,6 +52,10 @@ GEM
       multi_json (~> 1.0)
     foreman (0.61.0)
       thor (>= 0.13.6)
+    foreman (0.61.0-x86-mingw32)
+      thor (>= 0.13.6)
+      win32console (~> 1.3.0)
+    google-analytics-rails (0.0.4)
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
@@ -122,6 +126,7 @@ GEM
       multi_json (~> 1.0, >= 1.0.2)
     warden (1.2.1)
       rack (>= 1.0)
+    win32console (1.3.2-x86-mingw32)
 
 PLATFORMS
   ruby
@@ -131,6 +136,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
   foreman
+  google-analytics-rails
   jquery-rails
   kaminari
   pg

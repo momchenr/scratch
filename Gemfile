@@ -6,6 +6,7 @@ gem 'devise'
 gem 'seed_dump'
 gem 'kaminari'
 gem 'foreman'
+gem 'google-analytics-rails'
 
 # gem 'tire'
 

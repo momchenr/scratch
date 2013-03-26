@@ -1,4 +1,7 @@
 Scratch::Application.configure do
+  # Replace this with your tracker code
+  GA.tracker = "UA-18290497-9"
+  
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
