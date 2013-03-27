@@ -7,6 +7,7 @@ gem 'seed_dump'
 gem 'kaminari'
 gem 'foreman'
 gem 'google-analytics-rails'
+gem 'newrelic_rpm'
 
 # gem 'tire'
 
