@@ -23,8 +23,13 @@
       <th style="padding-left:30px"><h4>Details</h4></th>
       <th style="padding-left:30px"><h4>Added</h4></th>
       <th style="padding-left:30px"><h4>Price</h4></th>
-      <th style="padding-left:30px"><h4>Edit</h4></th>
-      <th style="padding-left:30px"><h4>Delete</h4></th>
+
+      <% if @user == current_user %>
+        <th style="padding-left:30px"><h4>Edit</h4></th>
+        <th style="padding-left:30px"><h4>Delete</h4></th>
+      <% else %>
+      <% end %>
+
     </tr>
 		<% @user.items.each do |item| %>
       <tr>
