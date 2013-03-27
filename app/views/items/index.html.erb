@@ -44,10 +44,10 @@
         <td><%= link_to truncate(item.title.to_s, :length => 25), item_path(item) %></td>
         <td><%= truncate(item.content.to_s, :length => 27) %></td>
         
-        <% if item.price == nil %>
+        <% if item.price.blank? %>
           <td>---</td>
         <% else %>
-          <td><%= item.price.to_s %></td>
+          <td><%= item.price %></td>
         <% end %>
 
         <% if item.location.blank? %>
