@@ -1,16 +1,13 @@
 <div class="well">
   <h1><%= @user.username %></h1>
   <ul>
-      
-      <% if @user.location != nil %>
-        <li>From <%= @user.location %></li>
+
+      <% if location_display(@user).blank? %>
       <% else %>
+        <li>From: <%= location_display(@user) %></li>
       <% end %>
       
-      <% if @user.phone != nil %>
-        <li>Phone Number: <%= @user.phone %></li>
-      <% else %>
-      <% end %>
+      <li>Phone Number: <%= phone_display(@user) %></li>
       
       <li>Email: <%= @user.email %></li>
       <li>Last Seen: <%= @user.last_sign_in_at.to_formatted_s(format = :long_ordinal) %></li>
@@ -37,7 +34,7 @@
         <td style="padding-left:30px"><%= item.created_at.to_formatted_s(format = :long_ordinal) %></li>
 
         <% if item.price == nil %>
-          <td style="padding-left:30px">-</td>
+          <td style="padding-left:30px">---</td>
         <% else %>
           <td style="padding-left:30px"><%= item.price %></td>
         <% end %>

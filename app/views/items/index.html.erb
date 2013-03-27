@@ -45,12 +45,16 @@
         <td><%= truncate(item.content.to_s, :length => 27) %></td>
         
         <% if item.price == nil %>
-          <td>-</td>
+          <td>---</td>
         <% else %>
           <td><%= item.price.to_s %></td>
         <% end %>
-        
-        <td><%= item.location %></td>
+
+        <% if item.location.blank? %>
+          <td>---</td>
+        <% else %>
+          <td><%= item.location %></td>
+        <% end %>
 
         <td><%= item.created_at.to_formatted_s(format = :long_ordinal) %></td>
 
@@ -64,7 +68,9 @@
         <% if item.email == current_user.email %>
         <td><%= link_to 'Edit', edit_item_path(item).to_s %></td>
         <td><%= link_to 'Delete', item, confirm: 'Are you sure?', method: :delete %></td>
-        <% else %>
+      <% else %>
+        <td>---</td>
+        <td>---</td>
         <% end %>
       </tr>
       <% end %>

@@ -14,10 +14,5 @@ class User < ActiveRecord::Base
   
   def to_param
     username
-  end
-
-  def location
-    [city.to_s.camelcase, state.to_s.upcase].reject(&:blank?).join(", ")
-  end
-  
+  end  
 end

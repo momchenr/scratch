@@ -12,21 +12,9 @@
       <% @user.each do |user| %>
         <td><%= link_to user.username, public_profile_path(user.username) %><br/></td>
         
-        <% if user.state != nil and user.city != nil %>
-          <td><%= user.location %></td>
-        <% elsif user.state != nil and user.city == nil %>
-          <td><%= user.state %></td>
-        <% elsif user.state == nil and user.city != nil %>
-          <td><%= user.city %></td>
-        <% else %>
-          <td>---</td>
-        <% end %>
+        <td><%= location_display(user) %></td>
 
-        <% if user.phone != nil %>
-          <td><%= user.phone %></td>
-        <% else %>
-          <td>-</td>
-        <% end %>
+        <td><%= phone_display(user) %></td>
 
         <td><%= mail_to user.email.to_s, "Email this User", :cc => "michaelomchenry@gmail.com",
             :subject => "Contact from Overflow Member" %></td> 
