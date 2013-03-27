@@ -33,7 +33,7 @@
 
         <td style="padding-left:30px"><%= item.created_at.to_formatted_s(format = :long_ordinal) %></li>
 
-        <% if item.price == nil %>
+        <% if item.price.blank? %>
           <td style="padding-left:30px">---</td>
         <% else %>
           <td style="padding-left:30px"><%= item.price %></td>
