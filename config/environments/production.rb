@@ -7,8 +7,8 @@ Scratch::Application.configure do
     :address   => "smtp.mandrillapp.com",
     :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
     :enable_starttls_auto => true, # detects and uses STARTTLS
-    :user_name => "michaelomchenry@gmail.com",
-    :password  => "o44hOPvGFHa4kkpt1iWmOw", # SMTP password is any valid API key
+    :user_name => "app13942692@heroku.com",
+    :password  => "y-6Ka3KrhM75lmZipjzu2Q", # SMTP password is any valid API key
     :authentication => 'login', # Mandrill supports 'plain' or 'login'
     :domain => 'overflowapptest.com', # your domain to identify your server when connecting
   }
