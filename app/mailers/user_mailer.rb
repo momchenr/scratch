@@ -1,9 +1,9 @@
 class UserMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "info@overflowapp.com"
   
   def welcome_email(user)
     @user = user
-    @url  = "http://example.com/login"
-    mail(:to => user.email, :subject => "Welcome to My Awesome Site")
+    @url  = "http://morning-river-4764.herokuapp.com"
+    mail(:to => user.email, :subject => "Welcome to Overflow!")
   end
 end
