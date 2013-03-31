@@ -13,6 +13,10 @@ Scratch::Application.configure do
     :domain => 'overflowapptest.com', # your domain to identify your server when connecting
   }
 
+  ActionMailer::Base.delivery_method = :smtp
+
+  config.action_mailer.default_url_options = { :host => 'http://morning-river-4764.herokuapp.com' }
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
