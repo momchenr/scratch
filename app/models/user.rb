@@ -14,5 +14,14 @@ class User < ActiveRecord::Base
   
   def to_param
     username
-  end  
+  end
+
+  after_create :send_welcome_email
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver
+  end
+
 end
