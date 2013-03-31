@@ -2,6 +2,17 @@ Scratch::Application.configure do
   # Replace this with your tracker code
   GA.tracker = "UA-18290497-9"
   
+  # Mandrill Connectivity
+  config.action_mailer.smtp_settings = {
+    :address   => "smtp.mandrillapp.com",
+    :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
+    :enable_starttls_auto => true, # detects and uses STARTTLS
+    :user_name => "michaelomchenry@gmail.com",
+    :password  => "o44hOPvGFHa4kkpt1iWmOw", # SMTP password is any valid API key
+    :authentication => 'login', # Mandrill supports 'plain' or 'login'
+    :domain => 'overflowapptest.com', # your domain to identify your server when connecting
+  }
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
