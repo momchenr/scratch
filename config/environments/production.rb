@@ -22,8 +22,8 @@ Scratch::Application.configure do
     :storage => :s3,
     :s3_credentials => {
       :bucket => ENV['BUCKET_NAME'],
-      :access_key_id => ENV['AKIAICGN3EU32YH7BWLQ'],
-      :secret_access_key => ENV['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']
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
   
