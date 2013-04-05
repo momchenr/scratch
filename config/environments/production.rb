@@ -17,6 +17,16 @@ Scratch::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'http://morning-river-4764.herokuapp.com' }
 
+  # Amazon S3 Connectivity
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['overflow_images'],
+      :access_key_id => ENV['AKIAICGN3EU32YH7BWLQ'],
+      :secret_access_key => ENV['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']
+    }
+  }
+  
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
