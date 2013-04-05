@@ -8,6 +8,9 @@ gem 'kaminari'
 gem 'foreman'
 gem 'google-analytics-rails'
 gem 'newrelic_rpm'
+gem 'paperclip'
+gem 'aws-sdk'
+gem 'rmagick', '2.13.2'
 
 # gem 'tire'
 
