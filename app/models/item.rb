@@ -23,6 +23,7 @@ class Item < ActiveRecord::Base
     thumb: '100x100>',
     square: '200x200#',
     medium: '300x300>'
+    large: '600x600#',
   }
 #  mapping do
 #    indexes :content #analyzer: 'snowball'
