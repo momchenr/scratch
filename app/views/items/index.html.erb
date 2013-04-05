@@ -40,8 +40,16 @@
       </tr>
 
   <% @items.each do |item| %>
-      <tr>
-        <td><%= link_to truncate(item.title.to_s, :length => 25), item_path(item) %></td>
+    <tr>
+
+        <td>
+          <% if item.image.exists? %>
+            <strong><%= link_to truncate(item.title.to_s, :length => 25), item_path(item) %></strong>
+          <% else %>
+            <%= link_to truncate(item.title.to_s, :length => 25), item_path(item) %>
+          <% end %>
+        </td>
+        
         <td><%= truncate(item.content.to_s, :length => 27) %></td>
         
         <% if item.price.blank? %>
