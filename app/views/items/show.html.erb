@@ -30,9 +30,15 @@
     <%= @item.email %>&nbsp &nbsp
     <%= mail_to @item.email.to_s, "Email / Contact this User", :cc => 
         "michaelomchenry@gmail.com", :subject => "OverFlow Inquiry Regarding "  + @item.title.to_s %>
-	</p>
-	
-	
+  </p>
+
+  <% if @item.image.exists? %>
+  <p>
+    <%= image_tag @item.image.url(:square) %>
+    </p>
+  <% else %>
+  <% end %>
+
 	<%= link_to 'Edit', edit_item_path(@item) %> |
 	<%= link_to 'Back', items_path %>
 
