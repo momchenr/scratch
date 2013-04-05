@@ -21,7 +21,7 @@ Scratch::Application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => ENV['overflow_images'],
+      :bucket => ENV['BUCKET_NAME'],
       :access_key_id => ENV['AKIAICGN3EU32YH7BWLQ'],
       :secret_access_key => ENV['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']
     }
