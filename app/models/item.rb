@@ -2,7 +2,7 @@ class Item < ActiveRecord::Base
 #  include Tire::Model::Search
 #  include Tire::Model::Callbacks
 
-  attr_accessible :content, :user_id, :title, :price
+  attr_accessible :content, :user_id, :title, :price, :image
   validates :content, :length => { :maximum => 140 }
   belongs_to :user
   delegate :email, :city, :state, to: :user
@@ -18,6 +18,12 @@ class Item < ActiveRecord::Base
   def location
     [city.to_s.camelcase, state.to_s.upcase].reject(&:blank?).join(", ")
   end
+
+  has_attached_file :image, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>'
+  }
 #  mapping do
 #    indexes :content #analyzer: 'snowball'
 #    indexes :created_at, type: 'date'
