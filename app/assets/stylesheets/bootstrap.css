@@ -3284,9 +3284,9 @@ button.close {
   margin-top: 15px;
   padding: 23px 32px;
   font-size: 30px;
-  -webkit-border-radius: 12px;
-     -moz-border-radius: 12px;
-          border-radius: 12px;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
 }
 
 .btn-large {
