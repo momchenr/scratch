@@ -11,8 +11,16 @@
       
       <li>Email: <%= @user.email %></li>
       <li>Last Seen: <%= @user.last_sign_in_at.to_formatted_s(format = :long_ordinal) %></li>
-  	  <li>Joined Overflow: <%= @user.created_at.to_formatted_s(format = :long_ordinal) %></li>
-  	</ul>
+      <li>Joined Overflow: <%= @user.created_at.to_formatted_s(format = :long_ordinal) %></li>
+
+      <% if @user.email != current_user.email %>
+        <br /></ul>
+        <%= mail_to @user.email.to_s, "Contact This User", :cc => "michaelomchenry@gmail.com",
+          :subject => "OverFlow Contact Request", :class => "btn btn-large btn-info" %>
+      <% else %>
+      <% end %>
+    
+    </ul>
 </div>
 
 <% if @user.items.count != 0 %>
@@ -30,6 +38,7 @@
         <th style="padding-left:30px"><h4>Edit</h4></th>
         <th style="padding-left:30px"><h4>Delete</h4></th>
       <% else %>
+        <th style="padding-left:30px"><h4>Inquire</h4></th>
       <% end %>
 
     </tr>
@@ -49,7 +58,9 @@
         <% if item.email == current_user.email %>
 			  <td style="padding-left:30px"><%= link_to 'Edit', edit_item_path(item) %></td>
 			  <td style="padding-left:30px"><%= link_to 'Delete', item, confirm: 'Are you sure?', method: :delete %></td>
-			  <% else %>
+      <% else %>
+        <td style="padding-left:30px"><%= mail_to item.email.to_s, "Inquire", :cc => "michaelomchenry@gmail.com",
+          :subject => "OverFlow Inquiry Regarding " + item.title.to_s %></td>
         <% end %>
       
       </tr>
