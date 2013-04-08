@@ -11,6 +11,7 @@ gem 'newrelic_rpm'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'rmagick', '2.13.2'
+gem 'friendly_id'
 
 # gem 'tire'
 

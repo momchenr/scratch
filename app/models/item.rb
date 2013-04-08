@@ -1,6 +1,9 @@
 class Item < ActiveRecord::Base
 #  include Tire::Model::Search
 #  include Tire::Model::Callbacks
+  
+  extend FriendlyId
+  friendly_id :title, use: :slugged
 
   attr_accessible :content, :user_id, :title, :price, :image
   validates :content, :length => { :maximum => 140 }
