@@ -13,8 +13,9 @@
 	  	  </div>
 	  	
 	  	  <div>
-	  		  <%= f.label :company_name %>
-	  		  <%= f.text_field :username, :autofocus => true %>
+          <%= f.label :company_name %>
+          <em style="font-size:12px">(No periods, slashes, or &'s)</em>
+          <%= f.text_field :username, :autofocus => true %>
         </div>
 
         <div>
