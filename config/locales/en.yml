@@ -7,4 +7,12 @@ en:
     pagination:
       previous: "&lt; Previous"
       next: "Next &gt;"
-      truncate: "..." 
+      truncate: "..."
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            username:
+              invalid: " can only be letters, numbers, or spaces. No special
+                        characters like slashes or periods. Try again!"

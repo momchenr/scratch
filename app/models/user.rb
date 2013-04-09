@@ -11,7 +11,8 @@ class User < ActiveRecord::Base
   
   validates_presence_of :username
   validates_uniqueness_of :username
-  
+  validates :username, format: { with: /^[a-zA-Z\d\s]*$/ }
+
   def to_param
     username
   end
