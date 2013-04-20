@@ -25,65 +25,51 @@
 
 <div class="well">
 
-  <h1>All Items</h1>
-  <em>Items in <strong>bold</strong> have a photo!</em>
-    <table style="text-align:left; width:100%">
-      <tr>
-        <th><h3>Title</h3></th>
-        <th><h3>Details</h3></th>
-        <th><h3>Price</h3></th>
-        <th><h3>Location</h3></th>
-        <th><h3>Added</h3></th>
-        <th><h3>Inquire</h3></th>
-        <th><h3>Edit</h3></th>
-        <th><h3>Delete</h3></th>
-        <th><h3></h3></th>
-      </tr>
+  <h1 style="margin-bottom:25px">All Items</h1>
 
   <% @items.each do |item| %>
-    <tr>
-
-        <td>
-          <% if item.image.exists? %>
-            <strong><%= link_to truncate(item.title.to_s, :length => 25), item_path(item) %></strong>
-          <% else %>
-            <%= link_to truncate(item.title.to_s, :length => 25), item_path(item) %>
-          <% end %>
-        </td>
+    <div class="row" style="padding-left:35px; padding-right:15px">
+      <div class="item">
+        <div class="pull-right">
+          
+            <% if item.price.blank? %>
+              <h3 style="margin-bottom:-5px; text-align:right">---</h3>
+            <% else %>
+              <h3 style="margin-bottom:-5px; text-align:right""><%= item.price %></h3>
+            <% end %>
+          
         
-        <td><%= truncate(item.content.to_s, :length => 27) %></td>
-        
-        <% if item.price.blank? %>
-          <td>---</td>
-        <% else %>
-          <td><%= item.price %></td>
-        <% end %>
+          <div class="pull-right">
+            <% if item.email == current_user.email %>
+            <% else %>
+              <%= mail_to item.email.to_s, "Inquire", :cc => "michaelomchenry@gmail.com",
+                :subject => "Overflow Inquiry Regarding " + item.title.to_s %><br />
+            <% end %>
+          </div>
 
-        <% if item.location.blank? %>
-          <td>---</td>
-        <% else %>
-          <td><%= item.location %></td>
-        <% end %>
+          <div class="pull-right">
+            <% if item.email == current_user.email %>
+              <%= link_to 'Edit', edit_item_path(item).to_s, :class => "control" %>
+              <%= link_to 'Delete', item, confirm: 'Are you sure?', method: :delete, :class => "control" %>
+            <% else %>
+            <% end %>
+          </div>
+        </div>
 
-        <td><%= item.created_at.to_formatted_s(format = :long_ordinal) %></td>
+      <h3 style="margin-bottom:-5px"><%= link_to truncate(item.title.to_s, :length => 30), item_path(item) %></h3>
+      
+      <strong><%= truncate(item.content.to_s, :length => 35) %></strong><br />
+      
+      <em>posted <%= item.created_at.to_formatted_s(format = :long_ordinal) %></em>
 
-        <% if item.email == current_user.email %>
-          <td>(yours)</td>
-        <% else %>
-          <td><%= mail_to item.email.to_s, "Inquire", :cc => "michaelomchenry@gmail.com",
-            :subject => "OverFlow Inquiry Regarding " + item.title.to_s %></td>    
-        <% end %>
-
-        <% if item.email == current_user.email %>
-        <td><%= link_to 'Edit', edit_item_path(item).to_s %></td>
-        <td><%= link_to 'Delete', item, confirm: 'Are you sure?', method: :delete %></td>
+      <% if item.location.blank? %>
       <% else %>
-        <td>---</td>
-        <td>---</td>
-        <% end %>
-      </tr>
+        in <%= item.location %>
       <% end %>
-    </table>
+      <hr style="margin-top:5px; margin-bottom:0px">
+    </div>
+  </div>
+  <% end %>
     <br />
 
     <div>
