@@ -32,6 +32,14 @@ textarea {
   resize: vertical;
 }
 
+.item .control {
+  visibility: hidden;
+}
+
+.item:hover .control {
+  visibility: visible;
+}     
+
 .center {
   text-align: center;
 }
