@@ -28,10 +28,11 @@
 
 <div class="well">
 
-  <h1 style="margin-bottom:25px">All Items</h1>
+  <h1 style="margin-bottom:10px">All Items</h1>
+  <em>Items with an asterisk * have a photo uploaded.</em>
 
   <% @items.each do |item| %>
-    <div class="row" style="padding-left:35px; padding-right:15px">
+    <div class="row" style="padding-left:35px; padding-right:15px; padding-top:10px">
       <div class="item">
         <div class="pull-right">
           
@@ -59,8 +60,14 @@
           </div>
         </div>
 
-      <h4 style="margin-bottom:5px"><%= link_to truncate(item.title.to_s, :length => 30), item_path(item) %></h4>
-      
+      <h4 style="margin-bottom:5px">
+        <% if item.image.exists? %>
+          *
+        <% else %>
+        <% end %>
+        <%= link_to truncate(item.title.to_s, :length => 30), item_path(item) %>
+      </h4>
+
       <strong><%= truncate(item.content.to_s, :length => 35) %></strong><br />
       
       <em>posted <%= item.created_at.to_formatted_s(format = :long_ordinal) %></em>
