@@ -1,26 +1,29 @@
 <div class="row">
   <div class="span6">
-<div class="well">
-  <h1 style="">Search</h1>
-  <%= form_tag items_path, :method => 'get' do %>
-  <p style="padding-top:20px; margin-bottom:-17px">
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil, :class => 'btn btn-info',
-        :style => 'margin-bottom:10px' %>
-      <%= link_to "Browse Items", items_path, :class => 'btn btn-success',
-        :style => 'margin-bottom:10px' %>
-  </p>
-  <% end %>
-</div>
-</div>
-<div class="span9">
-  <div class="well">
-    <h2>Search Tips</h2>
-    <p>You should specify sizes, material, and part type in your searches.
-    For example, you could search for <strong>6" SS 316 90</strong>. The more
-    info there is to start with, the better!</p>
+    <div class="well">
+      
+        <h1>Search</h1>
+        
+        <%= form_tag items_path, :method => 'get' do %>       
+          <p style="padding-top:20px; margin-bottom:-17px">
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "Search", :name => nil, :class => 'btn btn-info',
+              :style => 'margin-bottom:10px' %>
+            <%= link_to "Browse Items", items_path, :class => 'btn btn-success',
+              :style => 'margin-bottom:10px' %>
+            </p>
+        <% end %>
+    </div>
   </div>
-</div>
+  
+  <div class="span9">
+    <div class="well">
+      <h2>Search Tips</h2>
+      <p>You should specify sizes, material, and part type in your searches.
+      For example, you could search for <strong>6" SS 316 90</strong>. The more
+      info there is to start with, the better!</p>
+    </div>
+  </div>
 </div>
 
 <div class="well">
@@ -33,13 +36,13 @@
         <div class="pull-right">
           
             <% if item.price.blank? %>
-              <h3 style="margin-bottom:-5px; text-align:right">---</h3>
+              <h4 style="margin-bottom:-5px; text-align:right">---</h4>
             <% else %>
-              <h3 style="margin-bottom:-5px; text-align:right""><%= item.price %></h3>
+              <h4 style="margin-bottom:-5px; text-align:right"><%= item.price %></h4>
             <% end %>
           
         
-          <div class="pull-right">
+          <div class="pull-right" style="margin-top:5px">
             <% if item.email == current_user.email %>
             <% else %>
               <%= mail_to item.email.to_s, "Inquire", :cc => "michaelomchenry@gmail.com",
@@ -47,7 +50,7 @@
             <% end %>
           </div>
 
-          <div class="pull-right">
+          <div class="pull-right" style="margin-top:5px">
             <% if item.email == current_user.email %>
               <%= link_to 'Edit', edit_item_path(item).to_s, :class => "control" %>
               <%= link_to 'Delete', item, confirm: 'Are you sure?', method: :delete, :class => "control" %>
@@ -56,7 +59,7 @@
           </div>
         </div>
 
-      <h3 style="margin-bottom:-5px"><%= link_to truncate(item.title.to_s, :length => 30), item_path(item) %></h3>
+      <h4 style="margin-bottom:5px"><%= link_to truncate(item.title.to_s, :length => 30), item_path(item) %></h4>
       
       <strong><%= truncate(item.content.to_s, :length => 35) %></strong><br />
       
@@ -70,7 +73,8 @@
     </div>
   </div>
   <% end %>
-    <br />
+  
+  <br />
 
     <div>
       <%= paginate @items %>
