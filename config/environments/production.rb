@@ -15,7 +15,7 @@ Scratch::Application.configure do
 
   ActionMailer::Base.delivery_method = :smtp
 
-  config.action_mailer.default_url_options = { :host => 'http://morning-river-4764.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'http://www.overflowmech.com' }
 
   # Amazon S3 Connectivity
   config.paperclip_defaults = {
