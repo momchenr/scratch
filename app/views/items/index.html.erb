@@ -46,7 +46,7 @@
           <div class="pull-right" style="margin-top:5px">
             <% if item.email == current_user.email %>
             <% else %>
-              <%= mail_to item.email.to_s, "Inquire", :cc => "michaelomchenry@gmail.com",
+              <%= mail_to item.email.to_s, "Inquire", :cc => "overflowmech@gmail.com",
                 :subject => "Overflow Inquiry Regarding " + item.title.to_s %><br />
             <% end %>
           </div>

@@ -29,7 +29,7 @@
   <b>User:</b>
     <%= @item.email %>&nbsp &nbsp
     <%= mail_to @item.email.to_s, "Email / Contact this User", :cc => 
-        "michaelomchenry@gmail.com", :subject => "OverFlow Inquiry Regarding "  + @item.title.to_s %>
+        "overflowmech@gmail.com", :subject => "OverFlow Inquiry Regarding "  + @item.title.to_s %>
   </p>
 
   <% if @item.image.exists? %>

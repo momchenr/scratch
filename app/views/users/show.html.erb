@@ -15,7 +15,7 @@
 
       <% if @user.email != current_user.email %>
         <br /></ul>
-        <%= mail_to @user.email.to_s, "Contact This User", :cc => "michaelomchenry@gmail.com",
+        <%= mail_to @user.email.to_s, "Contact This User", :cc => "overflowmech@gmail.com",
           :subject => "OverFlow Contact Request", :class => "btn btn-large btn-info" %>
       <% else %>
       <% end %>
